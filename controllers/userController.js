@@ -26,6 +26,10 @@ async function destroy(req, res) {}
 // Otros handlers...
 // ...
 
+function admin(req, res) {
+  res.render("admin");
+}
+
 module.exports = {
   index,
   show,
@@ -34,4 +38,5 @@ module.exports = {
   edit,
   update,
   destroy,
+  admin,
 };

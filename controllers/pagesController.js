@@ -19,8 +19,9 @@
 const { Article, User } = require("../models");
 
 async function showHome(req, res) {
-  const articles = await Article.findAll({ include: User });
-  res.render("home", { articles });
+  // const articles = await Article.findAll({ include: User });
+  // res.render("home", { articles });
+  res.render("home");
 }
 
 async function showContact(req, res) {
