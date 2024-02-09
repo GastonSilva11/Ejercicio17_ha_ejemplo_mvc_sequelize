@@ -21,11 +21,12 @@ const { Article } = require("../models");
 module.exports = async () => {
   const articles = [];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 10; i++) {
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
       image: faker.image.url(),
+      userId: faker.number.int({ min: 1, max: 10 }),
     });
   }
 
