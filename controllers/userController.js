@@ -2,7 +2,7 @@ const { User } = require("../models");
 
 // Display a listing of the resource.
 const index = (req, res) => {
-  res.render("home");
+  // res.render("home");
 };
 
 // Display the specified resource.
@@ -15,8 +15,11 @@ async function create(req, res) {}
 async function store(req, res) {}
 
 // Show the form for editing the specified resource.
-async function edit(req, res) {}
-
+function edit(req, res) {
+  // const id = req.params.id;
+  res.render("editArticle");
+  // Incluir luego para pasar el dato { id }
+}
 // Update the specified resource in storage.
 async function update(req, res) {}
 

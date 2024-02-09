@@ -6,5 +6,6 @@ const userController = require("../controllers/userController");
 // ...
 
 router.get("/", userController.admin);
+router.get("/editar", userController.edit);
 
 module.exports = router;
