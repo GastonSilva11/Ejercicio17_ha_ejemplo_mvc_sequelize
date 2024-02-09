@@ -37,10 +37,7 @@ async function store(req, res) {
 }
 
 // Show the form for editing the specified resource.
-async function edit(req, res) {
-  // Esta vista tendrá un formulario con los datos precargados del artículo presente en la URL (params).
-  res.render("edit");
-}
+async function edit(req, res) {}
 
 // Update the specified resource in storage.
 async function update(req, res) {

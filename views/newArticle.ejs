@@ -15,15 +15,15 @@
   <body>
     <%- include("./partials/navbar.ejs") %>
     <div class="container mt-5">
-      <h1>Edit article 1</h1>
-      <form>
+      <h1>New Article</h1>
+      <form action="/" method="POST">
         <div class="mb-3">
           <label for="" class="form-label">Title</label>
-          <input type="text" class="form-control" value="<%=article.title%>" id="titulo" />
+          <input type="text" class="form-control" id="titulo" />
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Content</label>
-          <input type="text" class="form-control" value="<%=article.content%>" id="contenido" />
+          <input type="text" class="form-control" id="contenido" />
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Image</label>
@@ -33,14 +33,13 @@
           <label for="" class="form-label">Select author</label>
           <select class="form-select mb-3" aria-label="Default select example">
             <option selected>Select...</option>
-
-            <% for(const user of users) { %>
-            <option value="<%= user.id %>"><%= user.firstname %> <%=user.lastname %></option>
-            <% } %>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
           </select>
         </div>
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary">Edit</button>
+          <button type="submit" class="btn btn-primary">Create</button>
         </div>
       </form>
     </div>
