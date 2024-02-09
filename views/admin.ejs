@@ -33,114 +33,24 @@
                 </tr>
               </thead>
               <tbody>
+                <% for(const article of articles) { %>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Man must explore, and this is exploration at its greatest</td>
+                  <th scope="row"><%=article.id %></th>
+                  <td><%=article.title %></td>
+                  <td><%=article.content %></td>
+                  <td><%=article.image %></td>
+                  <td><%=article.createdAt %></td>
+                  <td><%=article.user.firstname %> <%=article.user.lastname %></td>
                   <td>
-                    Never in all their history have men been able truly to conceive of the world as
-                    one: a single sphere, a globe, having the qualities of a globe, a round earth in
-                    which all the directions eventually meet, in which there is no center because
-                    every point, or none, is center — an equal earth which all men occupy as equals.
-                    The airman's earth, if free men make it, will be truly round: a globe in
-                    practice, not in theory.
-                  </td>
-                  <td>d</td>
-                  <td>2023-09-24 00:00:00</td>
-                  <td>Marty McFly</td>
-                  <td>
-                    <a href="/admin/editar">
+                    <a href="/admin/<%= article.id %>/editar">
                       <button type="submit" class="btn btn-primary">Edit</button>
                     </a>
-
                     <a href="/usuarios/eliminar/">
                       <button type="submit" class="btn btn-danger">Delete</button></a
                     >
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Ad lorem ipsum dolor sit amet</td>
-                  <td>
-                    Sit amet consectetur, adipisicing elit. Tenetur, natus qui ea in totam facere
-                    laboriosam nihil voluptate aut, vitae architecto esse minus delectus, suscipit
-                    voluptatibus ipsum! Nemo quas, consectetur perspiciatis...
-                  </td>
-                  <td>@fat</td>
-                  <td>2022-09-28 00:00:00</td>
-                  <td>Leia Organa</td>
-                  <td>
-                    <a href="/usuarios/edit/">
-                      <button type="submit" class="btn btn-primary">Edit</button>
-                    </a>
-
-                    <a href="/usuarios/eliminar/">
-                      <button type="submit" class="btn btn-danger">Delete</button></a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Ad lorem ipsum dolor sit amet</td>
-                  <td>
-                    Sit amet consectetur, adipisicing elit. Tenetur, natus qui ea in totam facere
-                    laboriosam nihil voluptate aut, vitae architecto esse minus delectus, suscipit
-                    voluptatibus ipsum! Nemo quas, consectetur perspiciatis...
-                  </td>
-                  <td>@fat</td>
-                  <td>2022-09-28 00:00:00</td>
-                  <td>Leia Organa</td>
-                  <td>
-                    <a href="/usuarios/edit/">
-                      <button type="submit" class="btn btn-primary">Edit</button>
-                    </a>
-
-                    <a href="/usuarios/eliminar/">
-                      <button type="submit" class="btn btn-danger">Delete</button></a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Ad lorem ipsum dolor sit amet</td>
-                  <td>
-                    Sit amet consectetur, adipisicing elit. Tenetur, natus qui ea in totam facere
-                    laboriosam nihil voluptate aut, vitae architecto esse minus delectus, suscipit
-                    voluptatibus ipsum! Nemo quas, consectetur perspiciatis...
-                  </td>
-                  <td>@fat</td>
-                  <td>2022-09-28 00:00:00</td>
-                  <td>Leia Organa</td>
-                  <td>
-                    <a href="/usuarios/edit/">
-                      <button type="submit" class="btn btn-primary">Edit</button>
-                    </a>
-
-                    <a href="/usuarios/eliminar/">
-                      <button type="submit" class="btn btn-danger">Delete</button></a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Ad lorem ipsum dolor sit amet</td>
-                  <td>
-                    Sit amet consectetur, adipisicing elit. Tenetur, natus qui ea in totam facere
-                    laboriosam nihil voluptate aut, vitae architecto esse minus delectus, suscipit
-                    voluptatibus ipsum! Nemo quas, consectetur perspiciatis...
-                  </td>
-                  <td>@fat</td>
-                  <td>2022-09-28 00:00:00</td>
-                  <td>Leia Organa</td>
-                  <td>
-                    <a href="/usuarios/edit/">
-                      <button type="submit" class="btn btn-primary">Edit</button>
-                    </a>
-
-                    <a href="/usuarios/eliminar/">
-                      <button type="submit" class="btn btn-danger">Delete</button></a
-                    >
-                  </td>
-                </tr>
+                <% } %>
               </tbody>
             </table>
           </div>

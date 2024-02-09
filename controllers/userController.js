@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Article } = require("../models");
 
 // Display a listing of the resource.
 const index = (req, res) => {
@@ -17,9 +17,14 @@ async function create(req, res) {
 async function store(req, res) {}
 
 // Show the form for editing the specified resource.
-function edit(req, res) {
-  // const id = req.params.id;
-  res.render("editArticle");
+async function edit(req, res) {
+  const id = req.params.id;
+  const article = await Article.findByPk(id);
+
+  const users = await User.findAll();
+
+  res.render("editArticle", { article, users });
+
   // Incluir luego para pasar el dato { id }
 }
 // Update the specified resource in storage.
@@ -31,8 +36,10 @@ async function destroy(req, res) {}
 // Otros handlers...
 // ...
 
-function admin(req, res) {
-  res.render("admin");
+async function admin(req, res) {
+  const articles = await Article.findAll({ include: User });
+
+  res.render("admin", { articles });
 }
 
 module.exports = {
