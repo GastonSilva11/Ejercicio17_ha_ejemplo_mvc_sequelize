@@ -18,6 +18,8 @@ async function show(req, res) {
 async function create(req, res) {
   // Esta vista tendrá un formulario que será el encargado de recibir los datos para crear
   // un nuevo artículo.
+  // id = req.params.id
+  // const articles = await Article.findAll({});
   res.render("create");
 }
 
