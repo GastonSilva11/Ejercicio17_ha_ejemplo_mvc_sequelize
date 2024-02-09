@@ -7,5 +7,6 @@ const userController = require("../controllers/userController");
 
 router.get("/", userController.admin);
 router.get("/editar", userController.edit);
+router.get("/create", userController.create);
 
 module.exports = router;
