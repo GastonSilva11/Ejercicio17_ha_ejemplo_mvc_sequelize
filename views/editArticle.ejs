@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar articulo</title>
+  </head>
+  <body>
+    <%- include("./partials/navbar.ejs") %>
+    <div class="container">
+      <h1>Edit article 1</h1>
+      <form>
+        <div class="mb-3">
+          <label for="" class="form-label">Title</label>
+          <input type="text" class="form-control" id="titulo" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Content</label>
+          <input type="text" class="form-control" id="contenido" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Image</label>
+          <input class="form-control" type="file" id="formFile" />
+        </div>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Select...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
