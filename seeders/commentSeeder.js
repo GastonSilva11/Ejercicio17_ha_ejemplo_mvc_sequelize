@@ -21,10 +21,11 @@ const { Comment } = require("../models");
 module.exports = async () => {
   const comments = [];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 10; i++) {
     comments.push({
-      author: faker.person.fullName(),
       content: faker.lorem.paragraphs(),
+      userId: faker.number.int({ min: 1, max: 10 }),
+      articleId: faker.number.int({ min: 1, max: 10 }),
     });
   }
 

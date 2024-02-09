@@ -19,9 +19,16 @@
 const { Article, User } = require("../models");
 
 async function showHome(req, res) {
+<<<<<<< Updated upstream
   // const articles = await Article.findAll({ include: User });
   // res.render("home", { articles });
   res.render("home");
+=======
+  // const articles = await Article.findAll({});
+  // console.log("+++++++++++++++++++++++++++++++++");
+  // console.log(articles[0]);
+  res.render("home", {});
+>>>>>>> Stashed changes
 }
 
 async function showContact(req, res) {
