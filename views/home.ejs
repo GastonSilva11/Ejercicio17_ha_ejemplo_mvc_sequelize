@@ -23,22 +23,17 @@
 
     <div class="container">
       <div class="row">
+        <% for(const article of articles) {%>
         <div class="col-12">
-          <h2 class="mid-titles mt-5">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur!
-          </h2>
-          <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi.</p>
+          <a class="" href="/articulos/<%=article.id%>">
+            <h2 class="mid-titles mt-5"><%= article.title %></h2>
+            <p class="mt-2">
+              Creado por <%= article.user.firstname %> <%= article.user.lastname %> el
+              <%=article.createdAt%>
+            </a>
+            </p>
           <hr class="mt-2" />
-          <h2 class="mid-titles">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur!
-          </h2>
-          <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi.</p>
-          <hr class="mt-2" />
-          <h2 class="mid-titles">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur!
-          </h2>
-          <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi.</p>
-          <hr class="mt-2" />
+          <% } %>
         </div>
       </div>
     </div>

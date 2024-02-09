@@ -1,8 +1,9 @@
-const { Article } = require("../models");
+const { Article, User, Comment } = require("../models");
 
 // Display a listing of the resource.
 function index(req, res) {
   // Esta será la página principal del proyecto.
+
   res.render("article");
 }
 
@@ -11,7 +12,11 @@ async function show(req, res) {
   // Aquí necesitaremos los datos del articulo al que se le ha hecho clic.
   // La info de qué articulo necesitamos debería estar presente como parte de la URL (req.params)
   const id = req.params.id;
-  res.render(`article/${id}`);
+  const article = await Article.findByPk(id, { include: User });
+  const users = await User.findAll();
+  const comment = await Comment.findAll({ where: { articleId: id } });
+
+  res.render("article", { id, article, users, comment });
 }
 
 // Show the form for creating a new resource

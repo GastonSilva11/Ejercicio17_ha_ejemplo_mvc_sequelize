@@ -4,3 +4,8 @@
   background-image: url("../img/wire-frame-1311161_1280.jpg");
   height: 10rem;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
