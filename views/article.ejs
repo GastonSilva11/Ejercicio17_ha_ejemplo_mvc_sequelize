@@ -32,9 +32,9 @@
       <hr />
       <section class="comments">
         <h3>Add your comment</h3>
-        <form action="" class="form-control">
-          <select class="form-select mt-2" aria-label="Default select example">
-            <option selected>Select Author...</option>
+        <form action="/comentarios/create" method="post" class="form-control">
+          <select class="form-select mt-2" aria-label="Default select example" name="userId">
+            <option disabled selected>Select Author...</option>
 
             <% for (const user of users) { %>
             <option value="<%= user.id%>"><%= user.firstname%> <%= user.lastname%></option>
@@ -44,10 +44,13 @@
             <textarea
               class="form-control mt-2"
               placeholder="Leave a comment here"
-              id="floatingTextarea"
+              id="content"
+              name="content"
             ></textarea>
-            <label for="floatingTextarea">Comments</label>
-            <a href="" class="btn btn-primary mt-2">Send</a>
+            <label for="content">Comments</label>
+            <!-- hidden input to send article id in req.body -->
+            <input type="hidden" id="articleId" name="articleId" value="<%= article.id%>" />
+            <button type="submit " class="btn btn-primary mt-2">Send</button>
           </div>
         </form>
         <!-- user comment -->
