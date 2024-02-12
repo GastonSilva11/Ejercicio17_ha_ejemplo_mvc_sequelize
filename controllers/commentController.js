@@ -3,7 +3,6 @@ const { Article, User, Comment } = require("../models");
 // Store a newly created resource in storage.
 async function store(req, res) {
   const { userId, content, articleId } = req.body;
-  console.log(req.body);
   await Comment.create({ userId, content, articleId });
   res.redirect(`/articulos/${articleId}`);
 }
