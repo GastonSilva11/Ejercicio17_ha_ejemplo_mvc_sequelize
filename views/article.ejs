@@ -57,10 +57,11 @@
         <div>
           <h3 class="mt-4">Comments (3)</h3>
 
-          <!--  -->
-          <p class="comment-content">content</p>
-          <p class="author"></p>
+          <% for (const comentario of article.comments) {%>
+          <p class="comment-content"><%= comentario.content %></p>
+          <p class="author"><%= comentario.user.firstname %> <%= comentario.user.lastname %></p>
           <hr />
+          <% } %>
         </div>
         <!-- user comment end -->
       </section>

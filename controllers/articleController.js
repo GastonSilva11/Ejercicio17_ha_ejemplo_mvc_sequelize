@@ -9,19 +9,14 @@ function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  // Aquí necesitaremos los datos del articulo al que se le ha hecho clic.
-  // La info de qué articulo necesitamos debería estar presente como parte de la URL (req.params)
   const id = req.params.id;
-  const users = await User.findAll();
   // const article = await Article.findByPk(id, { include: User });
   // const comment = await Comment.findAll({ where: { articleId: id }, include: User });
+  const users = await User.findAll();
 
-  // ###########################################
   const article = await Article.findByPk(id, {
     include: ["user", { model: Comment, include: "user" }],
   });
-  console.log(article.user.id);
-
   res.render("article", { article, users });
 }
 
