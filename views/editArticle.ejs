@@ -16,7 +16,7 @@
     <%- include("./partials/navbar.ejs") %>
     <div class="container mt-5">
       <h1>Edit article 1</h1>
-      <form action="/articulos/<%= article.id %>/update" method="POST">
+      <form action="/articulos/<%= article.id %>/update?_method=patch" method="POST">
         <!-- <input type="hidden" name="_method" value="PATCH" /> -->
         <div class="mb-3">
           <label for="" class="form-label">Title</label>
@@ -44,7 +44,7 @@
         </div>
         <div>
           <label for="" class="form-label">Select author</label>
-          <select class="form-select mb-3" aria-label="Default select example">
+          <select class="form-select mb-3" aria-label="Default select example" name="newId">
             <option selected>Select...</option>
 
             <% for(const user of users) { %>
@@ -53,11 +53,9 @@
           </select>
         </div>
         <div class="d-grid gap-2">
-          <form action="/articulos/<%= article.id %>/update?_method=patch" method="post">
-            <a href="/admin">
-              <button type="submit" class="btn btn-primary">Edit</button>
-            </a>
-          </form>
+          <a href="/admin">
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </a>
         </div>
       </form>
     </div>

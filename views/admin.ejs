@@ -18,7 +18,7 @@
       <div class="row justify-content-center">
         <div class="">
           <h2 class="mt-4">Articles</h2>
-          <a class="btn btn-success" href="/admin/create">Nuevo</a>
+          <a class="btn btn-success" href="/articulos/crear">Nuevo</a>
           <div class="">
             <table class="table table table-striped table-bordered">
               <thead>
@@ -45,9 +45,11 @@
                     <a href="/articulos/<%= article.id %>/editar">
                       <button type="submit" class="btn btn-primary">Edit</button>
                     </a>
-                    <a href="/admin/eliminar/">
-                      <button type="submit" class="btn btn-danger">Delete</button></a
-                    >
+                    <form action="/articulos/<%=article.id %>?_method=delete" method="post">
+                      <a href="/admin/eliminar/">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </a>
+                    </form>
                   </td>
                 </tr>
                 <% } %>
