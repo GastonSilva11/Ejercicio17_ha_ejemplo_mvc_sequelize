@@ -16,14 +16,27 @@
     <%- include("./partials/navbar.ejs") %>
     <div class="container mt-5">
       <h1>Edit article 1</h1>
-      <form>
+      <form action="/articulos/<%= article.id %>/update" method="POST">
+        <!-- <input type="hidden" name="_method" value="PATCH" /> -->
         <div class="mb-3">
           <label for="" class="form-label">Title</label>
-          <input type="text" class="form-control" value="<%=article.title%>" id="titulo" />
+          <input
+            type="text"
+            class="form-control"
+            value="<%=article.title%>"
+            id="titulo"
+            name="newTitle"
+          />
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Content</label>
-          <input type="text" class="form-control" value="<%=article.content%>" id="contenido" />
+          <input
+            type="text"
+            class="form-control"
+            value="<%=article.content%>"
+            id="contenido"
+            name="newContent"
+          />
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Image</label>
@@ -40,7 +53,11 @@
           </select>
         </div>
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary">Edit</button>
+          <form action="/articulos/<%= article.id %>/update?_method=patch" method="post">
+            <a href="/admin">
+              <button type="submit" class="btn btn-primary">Edit</button>
+            </a>
+          </form>
         </div>
       </form>
     </div>

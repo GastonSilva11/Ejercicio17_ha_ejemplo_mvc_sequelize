@@ -42,10 +42,10 @@
                   <td><%=article.createdAt %></td>
                   <td><%=article.user.firstname %> <%=article.user.lastname %></td>
                   <td>
-                    <a href="/admin/<%= article.id %>/editar">
+                    <a href="/articulos/<%= article.id %>/editar">
                       <button type="submit" class="btn btn-primary">Edit</button>
                     </a>
-                    <a href="/usuarios/eliminar/">
+                    <a href="/admin/eliminar/">
                       <button type="submit" class="btn btn-danger">Delete</button></a
                     >
                   </td>

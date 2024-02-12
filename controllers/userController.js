@@ -27,11 +27,9 @@ async function edit(req, res) {
 
   // Incluir luego para pasar el dato { id }
 }
+
 // Update the specified resource in storage.
 async function update(req, res) {}
-
-// Remove the specified resource from storage.
-async function destroy(req, res) {}
 
 // Otros handlers...
 // ...
@@ -41,6 +39,9 @@ async function admin(req, res) {
 
   res.render("admin", { articles });
 }
+
+// Remove the specified resource from storage.
+async function destroy(req, res) {}
 
 module.exports = {
   index,
