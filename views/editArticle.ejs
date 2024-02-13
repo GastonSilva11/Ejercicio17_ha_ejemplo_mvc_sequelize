@@ -45,7 +45,7 @@
         <div>
           <label for="" class="form-label">Select author</label>
           <select class="form-select mb-3" aria-label="Default select example" name="newId">
-            <option selected>Select...</option>
+            <option disabled selected>Select...</option>
 
             <% for(const user of users) { %>
             <option value="<%= user.id %>"><%= user.firstname %> <%=user.lastname %></option>

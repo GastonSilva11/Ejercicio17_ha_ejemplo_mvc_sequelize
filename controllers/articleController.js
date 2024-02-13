@@ -3,7 +3,7 @@ const { Article, User, Comment } = require("../models");
 // Display a listing of the resource.
 function index(req, res) {
   // Esta será la página principal del proyecto.
-
+  // no usamos el index aca
   res.render("article");
 }
 
@@ -68,8 +68,6 @@ async function update(req, res) {
   const id = req.params.id;
   const { newContent, newTitle, newId } = req.body;
 
-  console.log(req.body);
-
   // - Hacer un update el artículo mencionado.
   await Article.update(
     { title: newTitle, content: newContent, userId: newId },
@@ -96,7 +94,7 @@ async function destroy(req, res) {
   res.redirect("/admin");
 }
 // Otros handlers...
-// ...
+// ... TODO add try catch blocks and returns for each function
 
 module.exports = {
   index,

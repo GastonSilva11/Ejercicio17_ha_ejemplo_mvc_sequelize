@@ -21,34 +21,24 @@ app.use(
 app.use(passport.session());
 
 passport.use(
-  new LocalStrategy(
-    {
-      usernameField: "email",
-      passwordField: "password",
-    },
-    async (email, password, validationDone) => {
-      try {
-        const user = await User.findOne({ where: { email } });
-        if (!user) {
-          console.log("Nombre de usuario no existe.");
-          return validationDone(null, false, { message: "Credenciales incorrectas." });
-        }
-        const match = await bcrypt.compare(password, user.password);
-        if (!match) {
-          console.log("La contraseña es inválida.");
-          return validationDone(null, false, {
-            message: "Credenciales incorrectas. Por favor, reintentar.",
-          });
-        }
-        console.log("Credenciales verificadas correctamente");
-        return validationDone(null, user);
-      } catch (error) {
-        validationDone(null, false, {
-          message: "Ocurrió un error inesperado. Por favor, reintentar.",
-        });
+  new LocalStrategy({ usernameField: "email" }, async (email, password, cb) => {
+    try {
+      const user = await User.findOne({ where: { email } });
+      if (!user) {
+        console.log("Nombre de usuario no existe.");
+        return cb(null, false, { message: "Credenciales incorrectas." });
       }
-    },
-  ),
+      const match = password === user.password;
+      if (!match) {
+        console.log("La contraseña es inválida.");
+        return cb(null, false, { message: "Credenciales incorrectas. Por favor, reintentar." });
+      }
+      console.log("Credenciales verificadas correctamente");
+      return cb(null, user);
+    } catch (error) {
+      cb(null, false, { message: "Ocurrió un error inesperado. Por favor, reintentar." });
+    }
+  }),
 );
 
 passport.serializeUser((user, cb) => {

@@ -2,23 +2,35 @@ const passport = require("passport");
 const { User } = require("../models");
 
 // Display a listing of the resource.
-// async function showLogin(req, res) {
-//   res.render("login");
-// }
+async function showLogin(req, res) {
+  res.render("login");
+}
 
 const login = passport.authenticate("local", {
   successRedirect: "/admin",
   failureRedirect: "/login",
 });
 
-// Display a listing of the resource.
-async function index(req, res) {}
-
-// Display the specified resource.
-async function show(req, res) {}
+async function showRegister(req, res) {
+  res.render("registro");
+}
 
 // Show the form for creating a new resource
-async function create(req, res) {}
+async function create(req, res) {
+  console.log(req.body);
+  const { firstname, lastname, username, email, password } = req.body;
+
+  // - Crear el user en la BBDD con todos los datos necesarios
+
+  await User.create({
+    firstname,
+    lastname,
+    username,
+    email,
+    password,
+  });
+  res.render("login");
+}
 
 // Store a newly created resource in storage.
 async function store(req, res) {}
@@ -36,10 +48,9 @@ async function destroy(req, res) {}
 // ...
 
 module.exports = {
-  // showLogin,
+  showLogin,
+  showRegister,
   login,
-  index,
-  show,
   create,
   store,
   edit,
