@@ -22,10 +22,14 @@ module.exports = async () => {
   const users = [];
 
   for (let i = 0; i < 10; i++) {
+    const firstname = faker.person.firstName();
+    const lastname = faker.person.lastName();
     users.push({
-      firstname: faker.person.firstName(),
-      lastname: faker.person.lastName(),
+      firstname: firstname,
+      lastname: lastname,
       email: faker.internet.email(),
+      username: firstname + lastname + i,
+      password: "1234",
     });
   }
 

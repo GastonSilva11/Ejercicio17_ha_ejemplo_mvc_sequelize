@@ -6,6 +6,64 @@ const routes = require("./routes");
 const APP_PORT = process.env.APP_PORT;
 const app = express();
 
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const { User } = require("./models");
+app.use(
+  session({
+    secret: "AlgúnTextoSuperSecreto",
+    resave: false,
+    saveUninitialized: false,
+  }),
+);
+
+app.use(passport.session());
+
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+    },
+    async (email, password, validationDone) => {
+      try {
+        const user = await User.findOne({ where: { email } });
+        if (!user) {
+          console.log("Nombre de usuario no existe.");
+          return validationDone(null, false, { message: "Credenciales incorrectas." });
+        }
+        const match = await bcrypt.compare(password, user.password);
+        if (!match) {
+          console.log("La contraseña es inválida.");
+          return validationDone(null, false, {
+            message: "Credenciales incorrectas. Por favor, reintentar.",
+          });
+        }
+        console.log("Credenciales verificadas correctamente");
+        return validationDone(null, user);
+      } catch (error) {
+        validationDone(null, false, {
+          message: "Ocurrió un error inesperado. Por favor, reintentar.",
+        });
+      }
+    },
+  ),
+);
+
+passport.serializeUser((user, cb) => {
+  cb(null, user.id);
+});
+
+passport.deserializeUser(async (id, cb) => {
+  try {
+    const user = await User.findByPk(id);
+    cb(null, user); // Usuario queda disponible en req.user.
+  } catch (err) {
+    cb(err);
+  }
+});
+
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
