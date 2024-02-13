@@ -8,13 +8,27 @@ const index = (req, res) => {
 // Display the specified resource.
 async function show(req, res) {}
 
-// Show the form for creating a new resource
+// Store a newly created resource in storage.
+
 async function create(req, res) {
-  res.render("newArticle");
+  res.render("registro");
 }
 
-// Store a newly created resource in storage.
-async function store(req, res) {}
+// Show the form for creating a new resource
+async function store(req, res) {
+  const { firstname, lastname, username, email, password } = req.body;
+
+  // - Crear el user en la BBDD con todos los datos necesarios
+
+  await User.create({
+    firstname,
+    lastname,
+    username,
+    email,
+    password,
+  });
+  res.render("login");
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {

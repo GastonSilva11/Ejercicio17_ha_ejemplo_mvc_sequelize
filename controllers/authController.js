@@ -11,29 +11,15 @@ const login = passport.authenticate("local", {
   failureRedirect: "/login",
 });
 
-async function showRegister(req, res) {
-  res.render("registro");
-}
-
-// Show the form for creating a new resource
-async function create(req, res) {
-  console.log(req.body);
-  const { firstname, lastname, username, email, password } = req.body;
-
-  // - Crear el user en la BBDD con todos los datos necesarios
-
-  await User.create({
-    firstname,
-    lastname,
-    username,
-    email,
-    password,
-  });
-  res.render("login");
-}
-
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function logout(req, res) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}
@@ -49,11 +35,6 @@ async function destroy(req, res) {}
 
 module.exports = {
   showLogin,
-  showRegister,
   login,
-  create,
-  store,
-  edit,
-  update,
-  destroy,
+  logout,
 };
