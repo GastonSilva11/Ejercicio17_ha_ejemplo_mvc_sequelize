@@ -14,7 +14,10 @@
   </head>
   <body>
     <%- include("./partials/navbar.ejs") %>
-    <div class="container mt-5 pt-5">
+    <div class="container mt-5 border rounded py-2">
+      <div class="text-center">
+        <h1>Login</h1>
+      </div>
       <form action="/login" method="post">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
@@ -26,7 +29,7 @@
         </div>
         <div class="d-grid gap-2">
           <!-- <a href="/admin"> -->
-          <button type="submit" class="btn btn-primary">Ingresar</button>
+          <button type="submit" class="btn btn-primary fs-4">Ingresar</button>
           <!-- </a> -->
         </div>
       </form>

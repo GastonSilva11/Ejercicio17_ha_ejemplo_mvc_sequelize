@@ -14,7 +14,10 @@
   </head>
   <body>
     <%- include("./partials/navbar.ejs") %>
-    <div class="container mt-5 pt-5">
+    <div class="container mt-5 border rounded py-2">
+      <div class="text-center">
+        <h1>Registrar</h1>
+      </div>
       <form action="/usuarios" method="post">
         <div class="mb-3">
           <label for="firstname" class="form-label">Firstname</label>
@@ -38,11 +41,11 @@
         </div>
         <div class="d-grid gap-2">
           <!-- <a href="/admin"> -->
-          <button type="submit" class="btn btn-primary">Registrar</button>
+          <button type="submit" class="btn btn-primary fs-4">Registrar</button>
           <!-- </a> -->
         </div>
       </form>
-      <%- include("./partials/footer.ejs") %>
     </div>
+    <%- include("./partials/footer.ejs") %>
   </body>
 </html>
