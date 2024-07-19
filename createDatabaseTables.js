@@ -13,6 +13,7 @@
  *
  * 👉 npm run tables
  *
+ *
  */
 
 require("dotenv").config();
